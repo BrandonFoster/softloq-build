@@ -1,3 +1,4 @@
+[![PyTest CI](https://github.com/BrandonFoster/softloq-build/actions/workflows/pytest-ci.yml/badge.svg)](https://github.com/BrandonFoster/softloq-build/actions/workflows/pytest-ci.yml)
 # softloq-build
 Python console app for building C++ apps, libs, and tests
 

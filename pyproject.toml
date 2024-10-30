@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "softloq-build"
+version = "0.0.1"
+authors = [{name = "Brandon Foster", email = "Brandon.Foster4525@outlook.com"}]
+description = "Python console app for building C++ apps, libs, and tests"
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+
+[project.scripts]
+softloq-build = "softloq_build.__main__:main"

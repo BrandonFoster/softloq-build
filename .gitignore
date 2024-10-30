@@ -1,0 +1,10 @@
+# python
+__pycache__
+*.egg-info
+venv
+
+# vs code
+.vscode
+
+# general
+build

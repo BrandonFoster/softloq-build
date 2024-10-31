@@ -12,6 +12,9 @@ license = {text = "MIT"}
 classifiers = [
     "Programming Language :: Python :: 3",
 ]
+dependencies = [
+    "tabulate",
+]
 
 [project.scripts]
 softloq-build = "softloq_build.__main__:main"

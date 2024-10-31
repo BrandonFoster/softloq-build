@@ -7,5 +7,8 @@ venv
 # vs code
 .vscode
 
+# pycharm
+.idea
+
 # general
 build

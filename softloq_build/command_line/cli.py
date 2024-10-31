@@ -66,24 +66,24 @@ def run_option(args: list[str]) -> int:
 
 	return process_option(option_params_dict)
 
-def process_option(option_params_dict: dict) -> int:
+def process_option(option_params_dict: dict[str, list[str]]) -> int:
 	for option in option_params_dict:
 		if '--version' == option:
-			params: list = option_params_dict[option]
+			params: list[str] = option_params_dict[option]
 			if len(params) > 0:
 				print_error(INCORRECT_OPTION_PARAMS_ERROR, '--version')
 				return INCORRECT_OPTION_PARAMS_ERROR
 			version_option.option()
 			return 0
 		elif '--help' == option:
-			params: list = option_params_dict[option]
+			params: list[str] = option_params_dict[option]
 			if len(params) > 0:
 				print_error(INCORRECT_OPTION_PARAMS_ERROR, '--help')
 				return INCORRECT_OPTION_PARAMS_ERROR
 			help_option.option()
 			return 0
 		elif '--shell' == option:
-			params: list = option_params_dict[option]
+			params: list[str] = option_params_dict[option]
 			if len(params) > 0:
 				print_error(INCORRECT_OPTION_PARAMS_ERROR, '--shell')
 				return INCORRECT_OPTION_PARAMS_ERROR
@@ -96,7 +96,7 @@ def process_option(option_params_dict: dict) -> int:
 		# process shell mode option
 		if not shell_mode.is_running(): continue
 		if '--exit' == option:
-			params: list = option_params_dict[option]
+			params: list[str] = option_params_dict[option]
 			if len(params) > 0:
 				print_error(INCORRECT_OPTION_PARAMS_ERROR, '--shell')
 				return INCORRECT_OPTION_PARAMS_ERROR

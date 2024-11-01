@@ -1,5 +1,18 @@
-from softloq_build import cli
+import sys
+from softloq_build import command_line
 
-def main(): cli.say_hello()
+def main() -> int:
+	"""
+	Main entry point of the console application.
 
-if __name__ == '__main__': main()
+	Attempts to run a command-line option if arguments are provided.
+	Runs the help option by default.
+
+	:return: Status code from the command-line interface.
+	"""
+
+	if len(sys.argv) > 1: return command_line.run_option(sys.argv[1:])
+	return command_line.run_option(['--help'])
+
+
+if __name__ == '__main__': sys.exit(main())

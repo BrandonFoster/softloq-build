@@ -9,7 +9,8 @@ def option() -> None:
 	print(tabulate([['  --help', 'Displays the help guideline.'],
 	                ['  --version', 'Displays the version.'],
 	                ['  --shell', 'Enters shell mode with more options enabled (see below).\n'
-	                              'The "--" command prefix is optional in shell mode.']],
+	                              'The "--" command prefix is optional in shell mode.'],
+	                ['  --load <folder-path> <target-file>', 'Loads the specified target build file into the cache folder.']],
 	               tablefmt = "plain"))
 	print()
 	print('shell mode options:')

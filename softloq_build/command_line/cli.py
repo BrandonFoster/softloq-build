@@ -1,10 +1,11 @@
 from typing import Final
 from . import help_option
 from . import version_option
+from . import load_option
 from . import shell_mode
 
-KNOWN_OPTIONS: Final[set[str]] = {'--help', '--version', '--shell'}
-PRIMARY_OPTIONS: Final[set[str]] = {'--help', '--version', '--shell'}
+KNOWN_OPTIONS: Final[set[str]] = {'--help', '--version', '--shell', '--load'}
+PRIMARY_OPTIONS: Final[set[str]] = {'--help', '--version', '--shell', '--load'}
 
 
 UNKNOWN_OPTION_ERROR: Final[int] = 1
@@ -13,6 +14,7 @@ SHELL_MODE_ONLY_OPTION_ERROR: Final[int] = 3
 TWO_PRIMARY_OPTION_ERROR: Final[int] = 4
 EXPECTED_OPTION_ERROR: Final[int] = 5
 INCORRECT_OPTION_PARAMS_ERROR: Final[int] = 6
+LOAD_OPTION_ERROR: Final[int] = 7
 
 def run_option(args: list[str]) -> int:
 	"""
@@ -91,6 +93,13 @@ def process_option(option_params_dict: dict[str, list[str]]) -> int:
 				print('user is now in shell mode (type exit to leave)')
 				return 0
 			shell_mode.run_sh()
+			return 0
+		elif '--load' == option:
+			params: list[str] = option_params_dict[option]
+			if len(params) != 2:
+				print_error(INCORRECT_OPTION_PARAMS_ERROR, '--load <folder-path> <target-file>')
+				return INCORRECT_OPTION_PARAMS_ERROR
+			if load_option.option(params[0], params[1]) > 0: return LOAD_OPTION_ERROR;
 			return 0
 
 		# process shell mode option

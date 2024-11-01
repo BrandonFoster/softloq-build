@@ -28,6 +28,11 @@ Displays the version.
 
 `> softloq-build --version`
 
+## Loading Build Targets
+Loading a specific target build file into the cache folder.
+
+`> softloq-build --load <folder-path> <target-file>`
+
 ## Shell Mode
 Enters shell mode with more options enabled.
 

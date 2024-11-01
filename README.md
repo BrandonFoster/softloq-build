@@ -12,7 +12,7 @@ Python console app for building C++ apps, libs, and tests
 # Running Tests
 pytest must be installed: `> pip install pytest`
 
-run pytest in the project directory: `> pytest`
+run pytest in the project directory: `> pytest -s`
 
 # Usage Example
 The build system uses cmake in the background

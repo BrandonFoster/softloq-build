@@ -1,6 +1,6 @@
 from typing import Final
 import shlex
-from ... import cli as command_line
+from ...command_line import cli as command_line
 
 KNOWN_OPTIONS: Final[set] = {'--exit'}
 PRIMARY_OPTIONS: Final[set] = {'--exit'}
@@ -24,8 +24,11 @@ def run_sh():
         try: option = str(input())
         except KeyboardInterrupt:
             print('^C')
-            break
-        except EOFError: break
+            on = False
+            continue
+        except EOFError:
+            on = False
+            continue
         if len(option) == 0: continue
         if option.find('--') != 0: option = '--' + option
         command_line.run_option(shlex.split(option))
